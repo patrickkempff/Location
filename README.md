@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/patrickkempff/Location.svg?branch=master)](https://travis-ci.org/patrickkempff/Location)
 [![Coverage Status](https://coveralls.io/repos/github/patrickkempff/Location/badge.svg?branch=master)](https://coveralls.io/github/patrickkempff/Location?branch=master)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b51bec49-b547-4f43-bfaf-1dc347953eb3/mini.png)](https://insight.sensiolabs.com/projects/b51bec49-b547-4f43-bfaf-1dc347953eb3)
+
 
 A simple library for dealing with (geographical) locations.
 
