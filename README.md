@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/patrickkempff/Location.svg?branch=master)](https://travis-ci.org/patrickkempff/Location)
 [![Coverage Status](https://coveralls.io/repos/github/patrickkempff/Location/badge.svg?branch=master)](https://coveralls.io/github/patrickkempff/Location?branch=master)
 
-
 A simple library for dealing with (geographical) locations.
 
 ```php
@@ -30,7 +29,7 @@ $ composer require patrickkempff/location
 ```json
 {
     "require": {
-        "patrickkempff/location": "@dev"
+        "patrickkempff/location": "dev-master"
     }
 }
 ```
