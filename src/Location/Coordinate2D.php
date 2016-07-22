@@ -15,8 +15,14 @@ use Assert\Assertion;
 
 class Coordinate2D
 {
-
+    /**
+     * @var int|float
+     */
     private $latitude;
+
+    /**
+     * @var int|float
+     */
     private $longitude;
 
     /**
