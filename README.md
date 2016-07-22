@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/patrickkempff/Location/badge.svg?branch=master)](https://coveralls.io/github/patrickkempff/Location?branch=master)
 
 
-A simple library for dealing with (geo) locations.
+A simple library for dealing with (geographical) locations.
 
 ```php
 use Location\Location;
@@ -30,7 +30,7 @@ $ composer require patrickkempff/location
 ```json
 {
     "require": {
-        "patrickkempff/location": "~0.1"
+        "patrickkempff/location": "@dev"
     }
 }
 ```
@@ -54,7 +54,7 @@ $distance = $newyork->calculateDistanceFromLocation($maaskantje);
 
 ### Manual installation
 
-The recommend way to install Location is via [composer](http://getcomposer.org/). If you want to manually install Location download [Location.php](https://github.com/patrickkempff/Location/blob/master/src/Location/Location.php) from the repo and save the file into your project.
+Please note that the recommend way to install Location is via [composer](http://getcomposer.org/). If you really want to install Location manually, you can download [Location](https://github.com/patrickkempff/Location/archive/master.zip) from the repo and unpack the files into your project.
 
 ```php
 <?php
