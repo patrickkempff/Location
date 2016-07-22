@@ -4,3 +4,6 @@
 vendor
 composer.phar
 composer.lock
+
+# Ignore PHPUnit coverage file
+clover.xml
