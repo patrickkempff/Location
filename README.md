@@ -1,4 +1,8 @@
-A simple library for dealing with (geo) locations. 
+[![Build Status](https://travis-ci.org/patrickkempff/Location.svg?branch=master)](https://travis-ci.org/patrickkempff/Location)
+
+
+
+A simple library for dealing with (geo) locations.
 
 ```php
 use Location\Location;
