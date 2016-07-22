@@ -1,7 +1,7 @@
 {
     "name": "patrickkempff/location",
     "type": "library",
-    "description": "A simple library for dealing with (geo) locations.",
+    "description": "A simple library for dealing with (geographical) locations.",
     "keywords": [
         "location",
         "geo",
