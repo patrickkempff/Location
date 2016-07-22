@@ -7,7 +7,14 @@ A simple library for dealing with (geo) locations.
 ```php
 use Location\Location;
 
-$loc = new Location(74.4562151,-68.7351081);
+// New York City Hall, USA
+$newyork = new Location(40.7127837, -74.0059413); 
+
+// Maaskantje, NL
+$maaskantje = new Location(51.6589954, 5.3718416);
+
+// The distance is 5921564 meters.
+$distance = $newyork->calculateDistanceFromLocation($maaskantje);
 
 ```
 
@@ -34,9 +41,14 @@ require 'vendor/autoload.php';
 
 use Location\Location;
 
-$loc = new Location(74.4562151,-68.7351081);
+// New York City Hall, USA
+$newyork = new Location(40.7127837, -74.0059413); 
 
-// TODO: add example
+// Maaskantje, NL
+$maaskantje = new Location(51.6589954, 5.3718416);
+
+// The distance is 5921564 meters.
+$distance = $newyork->calculateDistanceFromLocation($maaskantje);
 ```
 
 
@@ -50,7 +62,12 @@ require 'path/to/Location.php';
 
 use Location\Location;
 
-$loc = new Location(74.4562151,-68.7351081);
+// New York City Hall, USA
+$newyork = new Location(40.7127837, -74.0059413); 
 
-// TODO: add example
+// Maaskantje, NL
+$maaskantje = new Location(51.6589954, 5.3718416);
+
+// The distance is 5921564 meters.
+$distance = $newyork->calculateDistanceFromLocation($maaskantje);
 ```
