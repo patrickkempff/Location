@@ -11,17 +11,72 @@
 
 namespace Location;
 
+/**
+ * A Location object represents the data of a specific
+ * geographical location.
+ */
 class Location
 {
+
+    /**
+     * @var int The radius of the earth.
+     */
+    const EARTH_RADIUS = 6371000;
+
+    /**
+     * @var Coordinate2D
+     */
     private $coordinate;
 
+    /**
+     * @param int|float $latitude
+     * @param int|float $longitude
+     */
     public function __construct($latitude, $longitude)
     {
         $this->coordinate = new Coordinate2D($latitude, $longitude);
     }
 
+    /**
+     * The geographical coordinate information.
+     *
+     * @return Coordinate2D
+     */
     public function getCoordinate()
     {
         return $this->coordinate;
+    }
+
+    /**
+     * Returns the distance in meters from the receiver’s location to
+     * the given location.
+     *
+     * This method measures the distance between the two locations by
+     * tracing a line between them and taking the curvature of the earth
+     * into account.
+     *
+     * Please not that the result is a straight curve and is calculated
+     * by ignoring the altitude differences between the two locations.
+     *
+     * @param Location $location The other location.
+     *
+     * @return int The distance in meters between the two locations.
+     */
+    public function calculateDistanceFromLocation(Location $location)
+    {
+        // Convert the coordinates from degrees to radians.
+        $lat_from = deg2rad($this->getCoordinate()->getLatitude());
+        $lon_from = deg2rad($this->getCoordinate()->getLongitude());
+        $lat_to = deg2rad($location->getCoordinate()->getLatitude());
+        $lon_to = deg2rad($location->getCoordinate()->getLongitude());
+
+        $delta = $lon_to - $lon_from;
+        $a = pow(cos($lat_to) * sin($delta), 2) +
+            pow(cos($lat_from) * sin($lat_to) - sin($lat_from) * cos($lat_to) * cos($delta), 2);
+        $b = sin($lat_from) * sin($lat_to) + cos($lat_from) * cos($lat_to) * cos($delta);
+
+        $angle = atan2(sqrt($a), $b);
+
+        return intval($angle * self::EARTH_RADIUS);
     }
 }

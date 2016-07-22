@@ -16,8 +16,8 @@ use Assert\Assertion;
 /**
  * A structure that contains a geographical coordinate
  * using the WGS 84 reference frame.
- * 
- * @see https://en.wikipedia.org/wiki/World_Geodetic_System
+ *
+ * @link https://en.wikipedia.org/wiki/World_Geodetic_System
  */
 class Coordinate2D
 {
