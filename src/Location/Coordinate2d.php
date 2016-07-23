@@ -19,7 +19,7 @@ use Assert\Assertion;
  *
  * @link https://en.wikipedia.org/wiki/World_Geodetic_System
  */
-class Coordinate2D
+class Coordinate2d
 {
     /**
      * @var int|float
@@ -32,7 +32,7 @@ class Coordinate2D
     private $longitude;
 
     /**
-     * A structure that contains a geographical coordinate using the WGS 84 reference frame.
+     * A value object that contains a geographical coordinate.
      *
      * @param $latitude
      * @param $longitude
@@ -49,6 +49,31 @@ class Coordinate2D
 
         $this->latitude = $latitude;
         $this->longitude = $longitude;
+    }
+
+    /**
+     * Initializes and returns a location object with the specified coordinate information in string format.
+     *
+     * Valid format:
+     * "latitude in degrees, longitude in degrees"
+     *
+     * Example:
+     * "51.3703748, 6.1724031"
+     *
+     * Please note that UTM and MGRS coordinates are not yet supported!
+     *
+     * @param $coordinate Coordinate information in string format
+     *
+     * @return static
+     */
+    public static function fromString($coordinate)
+    {
+        Assertion::string($coordinate);
+        Assertion::true(substr_count($coordinate, ',')===1);
+
+        $coordinate = explode(',', $coordinate);
+
+        return new static((float) $coordinate[0], (float) $coordinate[1]);
     }
 
     /**

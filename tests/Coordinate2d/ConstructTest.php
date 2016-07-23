@@ -11,7 +11,7 @@
 
 namespace Tests\Coordinate2D;
 
-use Location\Coordinate2D;
+use Location\Coordinate2d;
 use Tests\AbstractTestCase;
 
 class ConstructTest extends AbstractTestCase
@@ -19,7 +19,7 @@ class ConstructTest extends AbstractTestCase
 
     public function testInstanceWithCoordinates()
     {
-        $c2d = new Coordinate2D(51.3775265, 6.0789937);
+        $c2d = new Coordinate2d(51.3775265, 6.0789937);
         $this->assertCoordinate2D($c2d, 51.3775265, 6.0789937);
     }
 
@@ -28,7 +28,7 @@ class ConstructTest extends AbstractTestCase
      */
     public function testInstanceWithNullCoordinatesThrowsException()
     {
-        new Coordinate2D(null, null);
+        new Coordinate2d(null, null);
     }
 
     /**
@@ -36,7 +36,40 @@ class ConstructTest extends AbstractTestCase
      */
     public function testInstanceWithStringCoordinatesThrowsException()
     {
-        new Coordinate2D('51.3775265', '6.0789937');
+        new Coordinate2d('51.3775265', '6.0789937');
+    }
+
+    public function testInstanceFromString()
+    {
+        $c2d = Coordinate2d::fromString('51.3775265,6.0789937');
+        $this->assertSame(
+            array('latitude' => 51.3775265, 'longitude' => 6.0789937),
+            array('latitude' => $c2d->getLatitude(), 'longitude' => $c2d->getLongitude())
+        );
+
+        $c2d = Coordinate2d::fromString('51,6');
+        $this->assertSame(
+            array('latitude' => 51.0, 'longitude' => 6.0),
+            array('latitude' => $c2d->getLatitude(), 'longitude' => $c2d->getLongitude())
+        );
+    }
+
+    public function testInstanceFromLongString()
+    {
+        $c2d = Coordinate2d::fromString('51.37752655265526552655526552655265,6.07899379937993799379937993799379937');
+        $this->assertSame(
+            array('latitude' => 51.37752655265526552655526552655265, 'longitude' => 6.07899379937993799379937993799379937),
+            array('latitude' => $c2d->getLatitude(), 'longitude' => $c2d->getLongitude())
+        );
+    }
+
+    public function testInstanceFromStringWithSpaceAfterComma()
+    {
+        $c2d = Coordinate2d::fromString('51.3775265, 6.0789937');
+        $this->assertSame(
+            array('latitude' => 51.3775265, 'longitude' => 6.0789937),
+            array('latitude' => $c2d->getLatitude(), 'longitude' => $c2d->getLongitude())
+        );
     }
 
     /**
@@ -45,7 +78,7 @@ class ConstructTest extends AbstractTestCase
      */
     public function testInstanceWithInvalidCoordinatesThrowsException($latitude, $longitude)
     {
-        new Coordinate2D($latitude, $longitude);
+        new Coordinate2d($latitude, $longitude);
     }
 
     /**
@@ -53,7 +86,7 @@ class ConstructTest extends AbstractTestCase
      */
     public function testInstanceWithValidCoordinatesThrowsException($latitude, $longitude)
     {
-        new Coordinate2D($latitude, $longitude);
+        new Coordinate2d($latitude, $longitude);
     }
 
     public function invalidCoordinatesDataProvider()

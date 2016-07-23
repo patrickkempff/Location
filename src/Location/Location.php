@@ -24,23 +24,45 @@ class Location
     const EARTH_RADIUS = 6371000;
 
     /**
-     * @var Coordinate2D
+     * @var Coordinate2d
      */
     private $coordinate;
 
     /**
-     * @param int|float $latitude
-     * @param int|float $longitude
+     * Location constructor.
+     *
+     * @param Coordinate2d $coordinate
      */
-    public function __construct($latitude, $longitude)
+    public function __construct(Coordinate2d $coordinate)
     {
-        $this->coordinate = new Coordinate2D($latitude, $longitude);
+        $this->coordinate = $coordinate;
+    }
+
+    /**
+     * @param $latitude
+     * @param $longitude
+     *
+     * @return static
+     */
+    public static function fromLatitudeLongitude($latitude, $longitude)
+    {
+        return new static(new Coordinate2d($latitude, $longitude));
+    }
+
+    /**
+     * @param $coordinate
+     *
+     * @return static
+     */
+    public static function fromString($coordinate)
+    {
+        return new static(Coordinate2d::fromString($coordinate));
     }
 
     /**
      * The geographical coordinate information.
      *
-     * @return Coordinate2D
+     * @return Coordinate2d
      */
     public function getCoordinate()
     {
