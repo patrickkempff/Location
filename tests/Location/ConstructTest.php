@@ -11,7 +11,6 @@
 
 namespace Tests\Location;
 
-use Location\Coordinate2d;
 use Location\Location;
 use Tests\AbstractTestCase;
 
@@ -26,12 +25,12 @@ class ConstructTest extends AbstractTestCase
 
     public function testInstanceFromCoordinate()
     {
-        $stub = $this->getMockBuilder(Coordinate2d::class)
+        $stub = $this->getMockBuilder('Location\Coordinate2d')
             ->disableOriginalConstructor()
             ->getMock();
 
         $stub->method('getLatitude')->willReturn(51.3775265);
-        $stub->method('getLogitude')->willReturn(6.0789937);
+        $stub->method('getLongitude')->willReturn(6.0789937);
 
         new Location($stub);
     }

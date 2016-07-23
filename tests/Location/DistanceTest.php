@@ -11,7 +11,6 @@
 
 namespace Tests\Location;
 
-use Location\Coordinate2d;
 use Location\Location;
 use Tests\AbstractTestCase;
 
@@ -21,7 +20,7 @@ class DistanceTest extends AbstractTestCase
     {
 
         // Amsterdam
-        $stub1 = $this->getMockBuilder(Coordinate2d::class)
+        $stub1 = $this->getMockBuilder('Location\Coordinate2d')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -31,7 +30,7 @@ class DistanceTest extends AbstractTestCase
         $amsterdam = new Location($stub1);
 
         // Venlo
-        $stub2 = $this->getMockBuilder(Coordinate2d::class)
+        $stub2 = $this->getMockBuilder('Location\Coordinate2d')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -50,7 +49,7 @@ class DistanceTest extends AbstractTestCase
     public function testLocationDistanceBetweenNewYorkAndMaaskantje()
     {
         // New york
-        $stub1 = $this->getMockBuilder(Coordinate2d::class)
+        $stub1 = $this->getMockBuilder('Location\Coordinate2d')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -60,7 +59,7 @@ class DistanceTest extends AbstractTestCase
         $newyork = new Location($stub1);
 
         // Maaskantje
-        $stub2 = $this->getMockBuilder(Coordinate2d::class)
+        $stub2 = $this->getMockBuilder('Location\Coordinate2d')
             ->disableOriginalConstructor()
             ->getMock();
 
