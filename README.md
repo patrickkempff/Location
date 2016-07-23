@@ -12,15 +12,24 @@ A simple library for dealing with (geographical) locations.
 use Location\Location;
 
 // New York City Hall, USA
-$newyork = new Location(40.7127837, -74.0059413); 
+$newyork = Location::fromLatitudeLongitude(40.7127837, -74.0059413); 
 
 // Maaskantje, NL
-$maaskantje = new Location(51.6589954, 5.3718416);
+$maaskantje = Location::fromLatitudeLongitude(51.6589954, 5.3718416);
 
 // The distance is 5921564 meters.
 $distance = $newyork->calculateDistanceFromLocation($maaskantje);
 
+
+// ....
+
+
+// Convert from string
+$venlo = Location::fromString("51.3703748, 6.1724031");
+
+
 ```
+Please note that UTM and MGRS coordinates are not yet supported.
 
 
 ## Installation
@@ -46,13 +55,14 @@ require 'vendor/autoload.php';
 use Location\Location;
 
 // New York City Hall, USA
-$newyork = new Location(40.7127837, -74.0059413); 
+$newyork = Location::fromLatitudeLongitude(40.7127837, -74.0059413); 
 
 // Maaskantje, NL
-$maaskantje = new Location(51.6589954, 5.3718416);
+$maaskantje = Location::fromLatitudeLongitude(51.6589954, 5.3718416);
 
 // The distance is 5921564 meters.
 $distance = $newyork->calculateDistanceFromLocation($maaskantje);
+
 ```
 
 
@@ -67,10 +77,10 @@ require 'path/to/Location.php';
 use Location\Location;
 
 // New York City Hall, USA
-$newyork = new Location(40.7127837, -74.0059413); 
+$newyork = Location::fromLatitudeLongitude(40.7127837, -74.0059413); 
 
 // Maaskantje, NL
-$maaskantje = new Location(51.6589954, 5.3718416);
+$maaskantje = Location::fromLatitudeLongitude(51.6589954, 5.3718416);
 
 // The distance is 5921564 meters.
 $distance = $newyork->calculateDistanceFromLocation($maaskantje);
