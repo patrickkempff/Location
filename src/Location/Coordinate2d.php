@@ -52,7 +52,7 @@ class Coordinate2d
     }
 
     /**
-     * Initializes and returns a location object with the specified coordinate information in string format.
+     * Initializes and returns a coordinate object with the specified coordinate information in string format.
      *
      * Valid format:
      * "latitude in degrees, longitude in degrees"
