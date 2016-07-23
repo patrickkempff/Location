@@ -39,8 +39,10 @@ class Location
     }
 
     /**
-     * @param $latitude
-     * @param $longitude
+     * Initializes and returns a location object with the latitude and longitude specified in degrees.
+     * 
+     * @param $latitude The latitude in degrees
+     * @param $longitude The longitude in degrees
      *
      * @return static
      */
@@ -50,7 +52,17 @@ class Location
     }
 
     /**
-     * @param $coordinate
+     * Initializes and returns a location object with the specified coordinate information in string format.
+     *
+     * Valid format:
+     * "latitude in degrees, longitude in degrees"
+     *
+     * Example:
+     * "51.3703748, 6.1724031"
+     *
+     * Please note that UTM and MGRS coordinates are not yet supported!
+     *
+     * @param $coordinate Coordinate information in string format
      *
      * @return static
      */
