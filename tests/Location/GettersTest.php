@@ -11,7 +11,6 @@
 
 namespace Tests\Location;
 
-use Location\Coordinate\Coordinate2d;
 use Location\Location;
 use Tests\AbstractTestCase;
 

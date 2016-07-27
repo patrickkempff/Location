@@ -39,7 +39,6 @@ class ConstructTest extends AbstractTestCase
 
     public function testInstanceFromCoordinate()
     {
-
         $stub = $this->getMockBuilder('Location\Coordinate\CoordinateInterface')
             ->getMock();
         $stub->method('getLatitude')->willReturn(51.3775265);

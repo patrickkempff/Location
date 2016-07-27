@@ -48,6 +48,7 @@ class Location
      * Initializes a location object
      *
      * @param CoordinateInterface $coordinate
+     *
      * @return static
      */
     public static function fromCoordinate(CoordinateInterface $coordinate)
@@ -67,6 +68,7 @@ class Location
 
     /**
      * The time at which this location was determined
+     *
      * @return DateTime
      */
     public function getTimestamp()
