@@ -10,23 +10,18 @@ A simple library for dealing with (geographical) locations.
 
 ```php
 use Location\Location;
+use Location\Coordinate\Coordinate2d;
+use Location\Distance\Haversine;
 
-// New York City Hall, USA
-$newyork = Location::fromLatitudeLongitude(40.7127837, -74.0059413); 
+// Amsterdam, NL.
+$amsterdam = new Location(new Coordinate2d(52.3079989, 4.9715451));
 
-// Maaskantje, NL
-$maaskantje = Location::fromLatitudeLongitude(51.6589954, 5.3718416);
+// Venlo, NL.
+$venlo = new Location(new Coordinate2d(51.3703748, 6.1724031));
 
-// The distance is 5921564 meters.
-$distance = $newyork->calculateDistanceFromLocation($maaskantje);
-
-
-// ....
-
-
-// Convert from string
-$venlo = Location::fromString("51.3703748, 6.1724031");
-
+// The distance between Venlo and Amsterdam is 132950 meters (132km 950m) 
+// using the Haversine formula.
+$distance = $newyork->calculateDistanceFromLocation($amsterdam, new Haversine());
 
 ```
 Please note that UTM and MGRS coordinates are not yet supported.
@@ -53,15 +48,18 @@ $ composer require patrickkempff/location
 require 'vendor/autoload.php';
 
 use Location\Location;
+use Location\Coordinate\Coordinate2d;
+use Location\Distance\Haversine;
 
-// New York City Hall, USA
-$newyork = Location::fromLatitudeLongitude(40.7127837, -74.0059413); 
+// Amsterdam, NL.
+$amsterdam = new Location(new Coordinate2d(52.3079989, 4.9715451));
 
-// Maaskantje, NL
-$maaskantje = Location::fromLatitudeLongitude(51.6589954, 5.3718416);
+// Venlo, NL.
+$venlo = new Location(new Coordinate2d(51.3703748, 6.1724031));
 
-// The distance is 5921564 meters.
-$distance = $newyork->calculateDistanceFromLocation($maaskantje);
+// The distance between Venlo and Amsterdam is 132950 meters (132km 950m) 
+// using the Haversine formula.
+$distance = $newyork->calculateDistanceFromLocation($amsterdam, new Haversine());
 
 ```
 
@@ -73,15 +71,20 @@ Please note that the recommend way to install Location is via [composer](http://
 ```php
 <?php
 require 'path/to/Location.php';
+require 'path/to/Coordinate/Coordinate2d.php';
+require 'path/to/Distance/Haversine.php';
 
 use Location\Location;
+use Location\Coordinate\Coordinate2d;
+use Location\Distance\Haversine;
 
-// New York City Hall, USA
-$newyork = Location::fromLatitudeLongitude(40.7127837, -74.0059413); 
+// Amsterdam, NL.
+$amsterdam = new Location(new Coordinate2d(52.3079989, 4.9715451));
 
-// Maaskantje, NL
-$maaskantje = Location::fromLatitudeLongitude(51.6589954, 5.3718416);
+// Venlo, NL.
+$venlo = new Location(new Coordinate2d(51.3703748, 6.1724031));
 
-// The distance is 5921564 meters.
-$distance = $newyork->calculateDistanceFromLocation($maaskantje);
+// The distance between Venlo and Amsterdam is 132950 meters (132km 950m) 
+// using the Haversine formula.
+$distance = $newyork->calculateDistanceFromLocation($amsterdam, new Haversine());
 ```

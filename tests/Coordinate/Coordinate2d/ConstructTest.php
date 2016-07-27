@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Tests\Coordinate2D;
+namespace Tests\Coordinate\Coordinate2D;
 
-use Location\Coordinate2d;
+use Location\Coordinate\Coordinate2d;
 use Tests\AbstractTestCase;
 
 class ConstructTest extends AbstractTestCase

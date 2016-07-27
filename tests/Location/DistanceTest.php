@@ -20,7 +20,7 @@ class DistanceTest extends AbstractTestCase
     {
 
         // Amsterdam
-        $stub1 = $this->getMockBuilder('Location\Coordinate2d')
+        $stub1 = $this->getMockBuilder('Location\Coordinate\CoordinateInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -30,7 +30,7 @@ class DistanceTest extends AbstractTestCase
         $amsterdam = new Location($stub1);
 
         // Venlo
-        $stub2 = $this->getMockBuilder('Location\Coordinate2d')
+        $stub2 = $this->getMockBuilder('Location\Coordinate\CoordinateInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -39,39 +39,15 @@ class DistanceTest extends AbstractTestCase
 
         $venlo = new Location($stub2);
 
-        $distance = $amsterdam->calculateDistanceFromLocation($venlo);
-
-        // the distance between Venlo and Amsterdam is 132 kilometers
-        // and 950 meters
-        $this->assertSame(132950, $distance);
-    }
-
-    public function testLocationDistanceBetweenNewYorkAndMaaskantje()
-    {
-        // New york
-        $stub1 = $this->getMockBuilder('Location\Coordinate2d')
-            ->disableOriginalConstructor()
+        // Distance calculator
+        $stub3 = $this->getMockBuilder('Location\Distance\DistanceCalculatorInterface')
             ->getMock();
 
-        $stub1->method('getLatitude')->willReturn(40.7127837);
-        $stub1->method('getLongitude')->willReturn(-74.0059413);
+        $stub3->method('calculateDistanceBetween')->willReturn(10);
 
-        $newyork = new Location($stub1);
+        // Calculate the distance.
+        $distance = $amsterdam->calculateDistanceFromLocation($venlo, $stub3);
 
-        // Maaskantje
-        $stub2 = $this->getMockBuilder('Location\Coordinate2d')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $stub2->method('getLatitude')->willReturn(51.6589954);
-        $stub2->method('getLongitude')->willReturn(5.3718416);
-
-        $maaskantje = new Location($stub2);
-
-        $distance = $newyork->calculateDistanceFromLocation($maaskantje);
-
-        // the distance between New York and Maaskantje (NL) is 5921 kilometers
-        // and 564 meters
-        $this->assertSame(5921564, $distance);
+        $this->assertSame(10, $distance);
     }
 }

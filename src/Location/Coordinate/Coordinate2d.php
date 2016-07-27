@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Location;
+namespace Location\Coordinate;
 
 use Assert\Assertion;
 
 /**
- * A structure that contains a geographical coordinate
+ * A value object that contains a geographical coordinate
  * using the WGS 84 reference frame.
  *
  * @link https://en.wikipedia.org/wiki/World_Geodetic_System
  */
-class Coordinate2d
+class Coordinate2d implements CoordinateInterface
 {
     /**
      * @var int|float

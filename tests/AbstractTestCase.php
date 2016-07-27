@@ -11,7 +11,7 @@
 
 namespace Tests;
 
-use Location\Coordinate2d;
+use Location\Coordinate\Coordinate2d;
 use PHPUnit_Framework_TestCase;
 
 abstract class AbstractTestCase extends PHPUnit_Framework_TestCase
@@ -26,7 +26,7 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase
 
     protected function assertInstanceOfCoordinate2D($c)
     {
-        $this->assertInstanceOf('Location\Coordinate2D', $c);
+        $this->assertInstanceOf('Location\Coordinate\Coordinate2D', $c);
     }
 
     protected function assertInstanceOfLocation($loc)
