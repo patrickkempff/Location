@@ -17,7 +17,7 @@ use Tests\AbstractTestCase;
 class ConstructTest extends AbstractTestCase
 {
 
-    public function testInstanceFromCoordinate()
+    public function testInstanceConstructorWithCoordinate()
     {
         $stub = $this->getMockBuilder('Location\Coordinate\Coordinate2d')
             ->disableOriginalConstructor()
