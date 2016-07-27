@@ -55,7 +55,7 @@ class Haversine implements DistanceCalculatorInterface
         $b = $a + cos($lat_from) * cos($lat_to) * sin($delta_lon/2) * sin($delta_lon/2);
         $angle = 2 * asin(sqrt($b));
 
-        return doubleval($angle * $this->earthRadius());
+        return floatval($angle * $this->earthRadius());
     }
 
     /**
