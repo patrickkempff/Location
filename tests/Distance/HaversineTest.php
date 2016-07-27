@@ -26,16 +26,14 @@ class HaversineTest extends AbstractTestCase
     public function testHaversineDistanceBetweenAmsterdamAndVenlo()
     {
         // Amsterdam
-        $amsterdam = $this->getMockBuilder('Location\Coordinate\Coordinate2d')
-            ->disableOriginalConstructor()
+        $amsterdam = $this->getMockBuilder('Location\Coordinate\CoordinateInterface')
             ->getMock();
 
         $amsterdam->method('getLatitude')->willReturn(52.3079989);
         $amsterdam->method('getLongitude')->willReturn(4.9715451);
 
         // Venlo
-        $venlo = $this->getMockBuilder('Location\Coordinate\Coordinate2d')
-            ->disableOriginalConstructor()
+        $venlo = $this->getMockBuilder('Location\Coordinate\CoordinateInterface')
             ->getMock();
 
         $venlo->method('getLatitude')->willReturn(51.3703748);
@@ -52,16 +50,14 @@ class HaversineTest extends AbstractTestCase
     public function testHaversineDistanceBetweenNewYorkAndMaaskantje()
     {
         // New York City Hall, USA
-        $newyork = $this->getMockBuilder('Location\Coordinate\Coordinate2d')
-            ->disableOriginalConstructor()
+        $newyork = $this->getMockBuilder('Location\Coordinate\CoordinateInterface')
             ->getMock();
 
         $newyork->method('getLatitude')->willReturn(40.7127837);
         $newyork->method('getLongitude')->willReturn(-74.0059413);
 
         // Maaskantje, NL
-        $maaskantje = $this->getMockBuilder('Location\Coordinate\Coordinate2d')
-            ->disableOriginalConstructor()
+        $maaskantje = $this->getMockBuilder('Location\Coordinate\CoordinateInterface')
             ->getMock();
 
         $maaskantje->method('getLatitude')->willReturn(51.6589954);
