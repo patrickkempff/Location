@@ -19,9 +19,25 @@ class GettersTest extends AbstractTestCase
 {
     public function testCoordinateGetter()
     {
-        $c2d = new Coordinate2d(74.4562151, -68.7351081);
-        $loc = new Location($c2d);
+        $stub = $this->getMock('Location\Coordinate\CoordinateInterface');
+        $stub->method('getLatitude')->willReturn(51.3775265);
+        $stub->method('getLongitude')->willReturn(6.0789937);
 
-        $this->assertSame($c2d, $loc->getCoordinate());
+        $location = new Location($stub, new \DateTime());
+
+        $this->assertSame($stub, $location->getCoordinate());
+    }
+
+    public function testTimestampGetter()
+    {
+        $stub = $this->getMock('Location\Coordinate\CoordinateInterface');
+        $stub->method('getLatitude')->willReturn(51.3775265);
+        $stub->method('getLongitude')->willReturn(6.0789937);
+
+        $now = new \DateTime();
+
+        $location = new Location($stub, $now);
+
+        $this->assertSame($now, $location->getTimestamp());
     }
 }
