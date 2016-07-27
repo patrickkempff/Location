@@ -22,7 +22,7 @@ use Location\Coordinate\CoordinateInterface;
 class Haversine implements DistanceCalculatorInterface
 {
     /**
-     * @var int The radius of the earth.
+     * @var int The radius of the earth in kilometers.
      */
     const EARTH_RADIUS = 6371000;
 
@@ -59,7 +59,7 @@ class Haversine implements DistanceCalculatorInterface
     }
 
     /**
-     * The radius of the earth.
+     * The radius of the earth in kilometers.
      *
      * @return int
      */
