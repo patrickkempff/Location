@@ -19,13 +19,32 @@ class ConstructTest extends AbstractTestCase
 
     public function testInstanceConstructorWithCoordinate()
     {
-        $stub = $this->getMockBuilder('Location\Coordinate\Coordinate2d')
-            ->disableOriginalConstructor()
-            ->getMock();
-
+        $stub = $this->getMock('Location\Coordinate\CoordinateInterface');
         $stub->method('getLatitude')->willReturn(51.3775265);
         $stub->method('getLongitude')->willReturn(6.0789937);
 
-        new Location($stub);
+        new Location($stub, new \DateTime());
+    }
+
+    public function testInstanceFromCoordinateAndTimestamp()
+    {
+        $stub = $this->getMock('Location\Coordinate\CoordinateInterface');
+        $stub->method('getLatitude')->willReturn(51.3775265);
+        $stub->method('getLongitude')->willReturn(6.0789937);
+
+        new Location($stub, new \DateTime());
+    }
+
+    public function testInstanceFromCoordinate()
+    {
+
+        $stub = $this->getMock('Location\Coordinate\CoordinateInterface');
+        $stub->method('getLatitude')->willReturn(51.3775265);
+        $stub->method('getLongitude')->willReturn(6.0789937);
+
+        $location = Location::fromCoordinate($stub);
+
+        $this->assertInstanceOf('Location\Location', $location);
+        $this->assertSame($stub, $location->getCoordinate());
     }
 }

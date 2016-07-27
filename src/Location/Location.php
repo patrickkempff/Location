@@ -13,6 +13,7 @@ namespace Location;
 
 use Location\Coordinate\CoordinateInterface;
 use Location\Distance\DistanceCalculatorInterface;
+use DateTime;
 
 /**
  * A Location object represents the data of a specific
@@ -27,13 +28,31 @@ class Location
     private $coordinate;
 
     /**
+     * @var DateTime
+     */
+    private $timestamp;
+
+    /**
      * Location constructor.
      *
      * @param CoordinateInterface $coordinate
+     * @param DateTime $timestamp The time at which this location was determined
      */
-    public function __construct(CoordinateInterface $coordinate)
+    public function __construct(CoordinateInterface $coordinate, DateTime $timestamp)
     {
         $this->coordinate = $coordinate;
+        $this->timestamp = $timestamp;
+    }
+
+    /**
+     * Initializes a location object
+     *
+     * @param CoordinateInterface $coordinate
+     * @return static
+     */
+    public static function fromCoordinate(CoordinateInterface $coordinate)
+    {
+        return new static($coordinate, new \DateTime());
     }
 
     /**
@@ -44,6 +63,15 @@ class Location
     public function getCoordinate()
     {
         return $this->coordinate;
+    }
+
+    /**
+     * The time at which this location was determined
+     * @return DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
     }
 
     /**
