@@ -21,7 +21,7 @@ $venlo = new Location(new Coordinate2d(51.3703748, 6.1724031));
 
 // The distance between Venlo and Amsterdam is 132950 meters (132km 950m) 
 // using the Haversine formula.
-$distance = $newyork->calculateDistanceFromLocation($amsterdam, new Haversine());
+$distance = $amsterdam->calculateDistanceFromLocation($venlo, new Haversine());
 
 ```
 Please note that UTM and MGRS coordinates are not yet supported.
@@ -59,7 +59,7 @@ $venlo = new Location(new Coordinate2d(51.3703748, 6.1724031));
 
 // The distance between Venlo and Amsterdam is 132950 meters (132km 950m) 
 // using the Haversine formula.
-$distance = $newyork->calculateDistanceFromLocation($amsterdam, new Haversine());
+$distance = $amsterdam->calculateDistanceFromLocation($venlo, new Haversine());
 
 ```
 
@@ -86,5 +86,5 @@ $venlo = new Location(new Coordinate2d(51.3703748, 6.1724031));
 
 // The distance between Venlo and Amsterdam is 132950 meters (132km 950m) 
 // using the Haversine formula.
-$distance = $newyork->calculateDistanceFromLocation($amsterdam, new Haversine());
+$distance = $amsterdam->calculateDistanceFromLocation($venlo, new Haversine());
 ```
