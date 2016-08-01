@@ -79,7 +79,6 @@ class HaversineTest extends AbstractTestCase
         $stub1->method('getLatitude')->willReturn(40.7127837);
         $stub1->method('getLongitude')->willReturn(-74.0059413);
 
-
         $stub2 = $this->getMockBuilder('Location\Coordinate\CoordinateInterface')
             ->getMock();
 
@@ -90,6 +89,5 @@ class HaversineTest extends AbstractTestCase
         $distance = $haversine->calculateDistanceBetween($stub1, $stub2);
 
         $this->assertSame(0.0, $distance);
-        
     }
 }

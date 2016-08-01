@@ -23,22 +23,8 @@ class GettersTest extends AbstractTestCase
         $stub->method('getLatitude')->willReturn(51.3775265);
         $stub->method('getLongitude')->willReturn(6.0789937);
 
-        $location = new Location($stub, new \DateTime());
+        $location = new Location($stub);
 
         $this->assertSame($stub, $location->getCoordinate());
-    }
-
-    public function testTimestampGetter()
-    {
-        $stub = $this->getMockBuilder('Location\Coordinate\CoordinateInterface')
-            ->getMock();
-        $stub->method('getLatitude')->willReturn(51.3775265);
-        $stub->method('getLongitude')->willReturn(6.0789937);
-
-        $now = new \DateTime();
-
-        $location = new Location($stub, $now);
-
-        $this->assertSame($now, $location->getTimestamp());
     }
 }
