@@ -24,7 +24,7 @@ $venlo = new Location(new Coordinate2d(51.3703748, 6.1724031));
 $distance = $amsterdam->calculateDistanceFromLocation($venlo, new Haversine());
 
 ```
-Please note that UTM and MGRS coordinates are not yet supported.
+*Please note that [UTM](https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system), [MGRS](https://en.wikipedia.org/wiki/Military_grid_reference_system) and [USNG](https://en.wikipedia.org/wiki/United_States_National_Grid) coordinate systems are not yet supported.*
 
 
 ## Installation
